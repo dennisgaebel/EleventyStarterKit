@@ -1,0 +1,18 @@
+{
+  "name": "EleventyStarterKit",
+  "version": "1.0.0",
+  "description": "11ty starter kit",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ELEVENTY_ENV=development npx @11ty/eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  },
+  "dependencies": {
+    "luxon": "^1.25.0"
+  }
+}

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta http-equiv="cleartype" content="on">
+
+    <title>{{ siteData.name}}{% if title %} | {{title}}{% endif %}</title>
+
+    <meta name="description" content="">
+		<meta name="robots" content="all">
+
+    <meta name="author" content="{{ siteData.name}}">
+		<meta name="Copyright" content="Copyright {{ siteData.name}} ©{% year %}. All Rights Reserved.">
+
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="designer" content="http://electricbullet.com">
+
+		<link href="/favicon.ico" rel="icon" type="image/x-icon">
+
+		<link href="/icon-android-192x192.png" rel="icon" sizes="192x192">
+		<meta name="theme-color" content="#006ea0">
+
+		<meta property="og:title" content="{{ siteData.name}}">
+		<meta property="og:type" content="company">
+		<meta property="og:url" content="http://electricbullet.com">
+		<meta property="og:image" content="http://electricbullet.com/ograph.png">
+		<meta property="og:description" content="">
+		<meta property="fb:admins" content="1">
+
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+
+    <style>
+			html {
+				font-family: 'Nanum Gothic', sans-serif;
+				background-color: #010108;
+				color: white;
+			}
+
+			h1,h2,h3,h4,h5,h6 {
+				font-weight: 800;
+				text-transform: uppercase;
+			}
+
+      html,
+			body {
+				margin: 0;
+        padding: 0;
+      }
+
+			img {
+				max-width: 100%;
+			}
+
+      .hero {
+        /* min-height: 600px; */
+				padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+				background: url(/assets/images/site/hero.png), linear-gradient(to bottom, rgba(255, 255, 255, 0.19) 0%, #000000 100%);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+			.hero > * {
+				color: white;
+			}
+
+			.grid-5050 {
+				display: grid;
+				grid-template-columns: 50% 50%;
+			}
+
+      a {
+        color: #F9FFB5;
+      }
+
+			.container {
+				margin: 30px;
+				padding: 0 calc(50% - 480px);
+			}
+
+			.eb-button {
+				border: 2px solid #FFCD65;
+				border-radius: 80rem;
+				padding: 1rem;
+				/* max-width: 200px; */
+				width: 100%;
+				display: inline-block;
+				text-align: center;
+				text-decoration: none;
+			}
+
+			.leaders {
+				padding-left: 0;
+			}
+
+			.leaders li {
+				display: flex;
+				justify-content: space-between;
+				white-space: nowrap;
+				box-sizing: border-box;
+				line-height: 1.5;
+				position: relative;
+			}
+
+			.leaders li::before {
+				content: '';
+				display: block;
+				border-bottom: 2px dotted #DFDFDFDF;
+				width: 100%;
+				height: 2px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 6px;
+			}
+
+			.leaders li span {
+				box-sizing: border-box;
+				display: inline-block;
+				position: relative;
+				background: black;
+			}
+
+			.leaders li span:first-child {
+				padding-right: 0.25em;
+			}
+			.leaders li span:last-child {
+				padding-left: 0.25em;
+			}
+    </style>
+  </head>
+
+  <body>
+    <div class="hero">
+      <header role="header">
+        <a href="/">
+          <img src="/assets/images/site/logo.png" alt="Electric Bullet">
+        </a>
+
+        {% include "nav.njk" %}
+      </header>
+
+      <h2>Guitar Repair & Customizations</h2>
+		  <p>When it comes to your guitar, playability is my first concern. Make sure your guitar plays it’s best by bringing it to a technician that cares about exceptional craftsmanship.<p>
+		
+		  <a href="#" class="eb-button">Get In Touch</a>
+		  <a href="#" class="eb-button">Custom Work Inquiry</a>
+    </div>
+
+    <main class="container" role="main">{{ content | safe }}</main>
+
+    <footer role="footer">
+      {% include "footer.njk" %}
+    </footer>
+  </body>
+</html>
