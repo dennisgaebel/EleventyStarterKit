@@ -1,8 +1,8 @@
-## EleventyStarterKit
+### EleventyStarterKit
 
---
+---
 
-### Serve Templates
+**Serve Templates**
 
 ```shell
 npm start

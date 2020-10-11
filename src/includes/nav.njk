@@ -1,7 +1,5 @@
 <nav role="navigation">
   {%- for page in collections.all -%}
-    <a href="{{ page.url }}">{{ page.data.name | capitalize }}</a>
+    <a href="{{ page.url }}">{{ page.data.name }}</a>
   {%- endfor -%}
-  <a href="/#repair-services">Repair Services</a>
-	<a href="https://reverb.com/shop/electric-bullet">Reverb Shop</a>
 </nav>

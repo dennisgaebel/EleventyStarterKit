@@ -1,29 +1,36 @@
 const { DateTime } = require("luxon");
 
-// docs: https://www.11ty.io/docs/config
+// @docs : config
+// https://www.11ty.io/docs/config
 module.exports = function(config) {
-  config.addShortcode("year", dateObj => {
-    return DateTime.local().toFormat('yyyy');
-  });
+	config.addLayoutAlias('default', 'default.njk');
+	config.addLayoutAlias("post", "post.njk");
 
-  config.addWatchTarget('./src/assets');
-  config.addLayoutAlias('default', 'default.njk');
+	config.addShortcode("year", dateObj => {
+		return DateTime.local().toFormat('yyyy');
+	});
 
-  config.addPassthroughCopy('src/robots.txt');
-  config.addPassthroughCopy('src/site.webmanifest');
-  config.addPassthroughCopy('src/assets/images');
-  config.addPassthroughCopy('src/assets/fonts');
+	// https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+	config.addFilter('htmlDateString', (dateObj) => {
+		return DateTime.fromJSDate(dateObj).toFormat('yyyy-LL-dd');
+	});
 
-  return {
-    dir: {
-      input: "src",
-      output: "dist",
-      includes: "includes",
-      layouts: "layouts",
-      data: "data"
-    },
-    templateFormats: ['njk', 'html'],
-    htmlTemplateEngine: 'njk',
-    markdownTemplateEngine: 'njk'
-  };
+	config.addWatchTarget('./src/assets');
+
+	config.addPassthroughCopy('src/robots.txt');
+	config.addPassthroughCopy('src/humans.txt');
+	config.addPassthroughCopy('src/assets');
+
+	return {
+		dir: {
+			input: "src",
+			output: "dist",
+			includes: "includes",
+			layouts: "layouts",
+			data: "data"
+		},
+		templateFormats: ['njk', 'html'],
+		htmlTemplateEngine: 'njk',
+		markdownTemplateEngine: 'njk'
+	};
 };
