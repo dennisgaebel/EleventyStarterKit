@@ -4,7 +4,6 @@ const { DateTime } = require("luxon");
 // https://www.11ty.io/docs/config
 module.exports = function(config) {
 	config.addLayoutAlias('default', 'default.njk');
-	config.addLayoutAlias("post", "post.njk");
 
 	config.addShortcode("year", dateObj => {
 		return DateTime.local().toFormat('yyyy');
@@ -19,7 +18,8 @@ module.exports = function(config) {
 
 	config.addPassthroughCopy('src/robots.txt');
 	config.addPassthroughCopy('src/humans.txt');
-	config.addPassthroughCopy('src/assets');
+	config.addPassthroughCopy('src/assets/css/main.css');
+	config.addPassthroughCopy('src/assets/images');
 
 	return {
 		dir: {
